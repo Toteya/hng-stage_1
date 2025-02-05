@@ -38,7 +38,7 @@ def get_digit_sum(number):
     """ Returns the sum of the digits of the given number
     """
     sum = 0
-    while number > 0:
+    while abs(number) > 0:
         sum += number % 10
         number = int(number / 10)
 

@@ -67,7 +67,7 @@ def is_perfect(number):
     i.e. A positive integer that equals the sum of its proper factors (all its
     divisors except itself)
     """
-    # find the list factors of the number
+    # find the list of factors of the number
     factors = [i for i in range(1, int(number / 2) + 1) if number % i == 0]
 
     if sum(factors) == number:
@@ -84,5 +84,20 @@ def get_properties(number):
         properties.append('even')
     else:
         properties.append('odd')
+    # properties.append('even') if number % 2 == 0 else properties.append('odd')
+
+    num = number
+    digits = []
+    while  num > 0:
+        digits.append(num % 10)
+        num = int(num / 10)
+
+    pow = len(digits)
+    narcissistic_sum = 0
+    for digit in digits:
+        narcissistic_sum += digit ** pow
+
+    if narcissistic_sum == number:
+        properties.append('armstrong')
 
     return properties

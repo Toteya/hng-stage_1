@@ -14,6 +14,9 @@ def classify_number():
     including a fun fact.
     """
     number = request.args.get('number')
+
+    if not number:
+        abort(400)
     try:
         number = int(number)
     except ValueError:
@@ -73,7 +76,7 @@ def is_perfect(number):
     if sum(factors) == number:
         return True
     return False
-    
+
 
 def get_properties(number):
     """ Returns the properties of a number - whether it's odd or even, whether
@@ -88,7 +91,7 @@ def get_properties(number):
 
     num = number
     digits = []
-    while  num > 0:
+    while num > 0:
         digits.append(num % 10)
         num = int(num / 10)
 

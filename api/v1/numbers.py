@@ -45,7 +45,7 @@ def get_digit_sum(number):
 def get_fun_fact(number):
     """ Returns an interesting fact about the given number from numbersapi.com
     """
-    url = f'http://numbersapi.com/{number}'
+    url = f'http://numbersapi.com/{number}/math'
     response = requests.get(url)
     return response.text
 
